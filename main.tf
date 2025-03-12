@@ -6,14 +6,17 @@ provider "google" {
 
 # Step 1: Create a GCS Bucket
 resource "google_storage_bucket" "my_bucket" {
-  name          = var.bucket_name
-  location      = var.region
+  name          = "my-unique-bucket-${var.project_id}"  # Ensure uniqueness
+  location      = "US"
   storage_class = "STANDARD"
 
   versioning {
-    enabled = true   # Step 3: Enable Object Versioning
+    enabled = true
   }
+
+  uniform_bucket_level_access = true  # Recommended security setting
 }
+
 
 # Step 2: Configure IAM Policy for Public or Private Access
 resource "google_storage_bucket_iam_member" "public_access" {
