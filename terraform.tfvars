@@ -1,5 +1,5 @@
 project_id         = "eng-artifact-453305-g4"
-gcp_credentials_file = "gcp-key.json"
+google_credentials_file = "gcp-key.json"
 bucket_name        = "bucket2"
 region            = "us-central1"
 is_public         = true  # Change to true for public access
